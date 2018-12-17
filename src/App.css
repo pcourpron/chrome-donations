@@ -6,6 +6,7 @@
   max-height: 100vh;
   overflow: hidden;
   position: relative;
+
 }
 
 .container-fluid {
@@ -23,11 +24,14 @@
 
 input::placeholder {
   font-size: 15px;
+
 }
 
 input{
   font-size:20px;
-  padding-left: 10px
+  padding-left: 15px;
+  padding-bottom:4px;
+  border:none
 }
 
 input:focus {
@@ -50,7 +54,8 @@ input:focus {
 #background {
 
   background-repeat: no-repeat;
-  background-size:cover
+  background-size:cover;
+  padding-top: 100px
 }
 
 .col{
@@ -67,4 +72,8 @@ input:focus {
   background-color: rgba(0,0,0,.5);
   position: absolute;
 
+}
+
+.nav-item{
+  color:white
 }

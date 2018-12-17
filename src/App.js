@@ -59,7 +59,6 @@ class App extends Component {
       <Navbar/>
       <div className='overlay'></div>
         <header className="container-fluid" id='background' style={{backgroundImage:`url(${Background})`}}>
-      
           <div className='row'>
             <div className='col'>
             <div className='row justify-content-center'>
