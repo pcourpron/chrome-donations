@@ -17,10 +17,10 @@ class App extends Component {
   sendToGoogle =(event)=>{
     event.preventDefault()
     if ((this.state.input === undefined)){
-    window.location = `https://www.google.com/`
+    window.top.location = `https://www.google.com/`
     }
     else{
-      window.location = `https://www.google.com/search?q=${this.state.input}`
+      window.top.location = `https://www.google.com/search?q=${this.state.input}`
 
     }
   }
@@ -53,7 +53,7 @@ class App extends Component {
 
 
   render() {
-    return (
+    return (  
 
       <div className="App" >
       <Navbar/>
