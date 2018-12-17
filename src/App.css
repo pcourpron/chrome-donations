@@ -77,3 +77,12 @@ input:focus {
 .nav-item{
   color:white
 }
+
+.nav-link{
+  background: none !important;
+  border:none !important;
+}
+
+.nav-link:hover{
+  cursor: pointer;
+}
