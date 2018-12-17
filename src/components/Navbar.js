@@ -2,6 +2,15 @@ import React from 'react'
 
 
 class Navbar extends React.Component {
+    NavbarClick = (location)=>{
+        if (location === 'gmail'){
+            window.top.location = 'https://mail.google.com/mail/u/0/'
+        }
+        else {
+            
+
+        }
+    }
     render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
@@ -13,10 +22,11 @@ class Navbar extends React.Component {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
-                                <a className="nav-link" href="https://mail.google.com/mail/u/0/">Gmail </a>
+                                <button className="nav-link" onClick={()=>{this.NavbarClick('gmail')}} >Gmail </button>
                             </li>
+                    
                             <li className="nav-item">
-                                <a className="nav-link" href="https://www.google.com/imghp">Images</a>
+                                <button className="nav-link" onClick={()=>{this.NavbarClick('aboutUs')}}>About us</button>
                             </li>
                         </ul>
                     </div>
