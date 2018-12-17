@@ -1,9 +1,14 @@
+
+
 .App {
   text-align: center;
+  background-color: #282c34;
+  max-height: 100vh;
+  overflow: hidden;
+  position: relative;
 }
 
 .container-fluid {
-  background-color: #282c34;
   min-height: 100vh;
   padding:0;
   align-items: center;
@@ -40,4 +45,26 @@ input:focus {
 .clock{
   color:white;
   font-size: 80px;
+}
+
+#background {
+
+  background-repeat: no-repeat;
+  background-size:cover
+}
+
+.col{
+  padding:0
+}
+.row{
+  margin-left:0;
+  margin-right:0
+}
+
+.overlay{
+  height:100%;
+  width:100%;
+  background-color: rgba(0,0,0,.5);
+  position: absolute;
+
 }

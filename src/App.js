@@ -2,12 +2,18 @@ import React, { Component } from 'react';
 import './App.css';
 import Navbar from './components/Navbar'
 import Clock from 'react-live-clock';
+import moment from 'moment'
+import Background from './assets/images/snow_mountain.jpg'
+
 
 class App extends Component {
   state = {
     input: undefined,
-    date: new Date()
+    date: new Date(),
+    background: null,
+    today: moment().format('LL')
   }
+  
   sendToGoogle =(event)=>{
     event.preventDefault()
     if ((this.state.input === undefined)){
@@ -27,26 +33,43 @@ class App extends Component {
     })
 
   }
+
+  setBackground(){
+    var backgrounds = ['lavander','snow_mountain','waterfall','wooden_boat'];
+    let selection  = Math.ceil(Math.random()*4)
+    this.setState({background:backgrounds[selection]})
+  }
+
+
   componentDidMount() {
+    this.setBackground()
     setInterval(
       () => this.setState({ date: new Date() }),
       1000
     );
+
+    
   }
 
 
   render() {
     return (
-      <div className="App">
-        <header className="container-fluid">
-          <Navbar/>
+
+      <div className="App" >
+      <Navbar/>
+      <div className='overlay'></div>
+        <header className="container-fluid" id='background' style={{backgroundImage:`url(${Background})`}}>
+      
           <div className='row'>
             <div className='col'>
             <div className='row justify-content-center'>
             <Clock className={'clock'} format={'HH:mm'} ticking={true} timezone={'US/Pacific'} />
             </div>
+            <div className='row justify-content-center'>
+            <h4>{this.state.today}</h4>
+            </div>
             <div className='row justify-content-center' id='header'>
-              <h4>Put it on my tab</h4>
+   
             </div>
               <form onSubmit={(event) => {
                 this.sendToGoogle(event)
