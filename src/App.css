@@ -1,13 +1,12 @@
-
-
 .App {
-  text-align: center;
   background-color: #282c34;
-  max-height: 100vh;
+
   overflow: hidden;
   position: relative;
 
 }
+
+
 
 .container-fluid {
   min-height: 100vh;
@@ -85,4 +84,25 @@ input:focus {
 
 .nav-link:hover{
   cursor: pointer;
+}
+
+/* about us */
+
+#about_us{
+  padding: 56px 20px 0;
+ 
+}
+
+#about_us .container-fluid .row .row {
+  margin-bottom: 30px
+}
+
+/* New Tab */
+
+#new-tab{
+  max-height: 100vh
+}
+
+#about-us{
+
 }

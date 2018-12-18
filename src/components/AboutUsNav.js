@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-class Navbar extends React.Component {
+class AboutUsNav extends React.Component {
     NavbarClick = (location)=>{
         if (location === 'gmail'){
             window.top.location = 'https://mail.google.com/mail/u/0/'
@@ -15,7 +15,7 @@ class Navbar extends React.Component {
 
     render() {
         return (
-            <nav className="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
                 <div className='container'>
                     <span className="navbar-brand" href="#">Tably</span>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,4 +41,4 @@ class Navbar extends React.Component {
     }
 }
 
-export default Navbar
+export default AboutUsNav
