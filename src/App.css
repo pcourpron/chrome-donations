@@ -1,20 +1,17 @@
 .App {
-  background-color: #282c34;
+  background-color: #FCFCFC;
 
   overflow: hidden;
   position: relative;
 
 }
-
-
-
 .container-fluid {
   min-height: 100vh;
   padding:0;
   align-items: center;
   justify-content: center;
 
-  color: white;
+
 }
 
 .App-link {
@@ -38,7 +35,7 @@ input:focus {
 }
 
 #header {
-  padding-top:50px
+  
 }
 
 
@@ -105,4 +102,40 @@ input:focus {
 
 #about-us{
 
+}
+
+/* Landing */
+
+#donation_hands {
+  width: 600px;
+  border-radius: 5px
+  
+}
+#group_picture {
+  width: 600px;
+  border-radius: 5px
+  
+}
+
+#landing_page{
+  padding-top: 56px;
+  background-image: url('');
+  background-repeat: no-repeat;
+ background-size:contain;
+ background-position-y: -250px;
+ background-position-x: 0px;
+
+ margin-top:0px
+
+}
+
+#landing_page .row:not(:first-child){
+  margin-top: 70px
+}
+#landing_page .row:nth-child(2){
+  padding-top: 100px
+}
+
+.logos{
+  height: 100px
 }
