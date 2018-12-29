@@ -3,14 +3,24 @@ import React from 'react'
 
 class AboutUsNav extends React.Component {
     NavbarClick = (location)=>{
-        if (location === 'gmail'){
-            window.top.location = 'https://mail.google.com/mail/u/0/'
+        switch (location) {
+            case 'gmail':
+                window.top.location = 'https://mail.google.com/mail/u/0/' 
+                break;
+                case 'aboutUs':
+                window.top.location = '/aboutUs' 
+                break;
+        
+                case 'newTab':
+                window.top.location = '/newTab' 
+                break;
+        
+            default:
+                break;
         }
-        else {
 
-
-        }
     }
+        
 
 
     render() {
@@ -31,7 +41,7 @@ class AboutUsNav extends React.Component {
                                 <button className="nav-link" onClick={()=>{this.NavbarClick('aboutUs')}}>About us</button>
                             </li>
                             <li className="nav-item">
-                                <button className="nav-link" onClick={()=>{this.NavbarClick('aboutUs')}}>New Tab</button>
+                                <button className="nav-link" onClick={()=>{this.NavbarClick('newTab')}}>New Tab</button>
                             </li>
                         </ul>
                     </div>

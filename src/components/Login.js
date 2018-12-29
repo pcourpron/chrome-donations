@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 
 
@@ -6,10 +7,9 @@ import React from 'react';
 class Login extends React.Component {
 
     GoogleLogin = () => {
-        this.props.firebase.auth().signInWithPopup(this.props.provider).then((result)=> {
+        this.props.firebase.auth().signInWithPopup(this.props.GoogleProvider).then((result) => {
             // This gives you a Google Access Token. You can use it to access the Google API.
             var token = result.credential.accessToken;
-            console.log(token)
             // The signed-in user info.
             var user = result.user;
             var displayName = user.displayName.split(' ')
@@ -21,10 +21,9 @@ class Login extends React.Component {
                 var firstName = displayName[0]
                 var lastName = displayName[2]
             }
-            console.log(firstName)
-            this.props.firestore.collection('Users').doc(user.uid).set({ First: firstName, Last: lastName, UID: user.uid }).then(function (result) {
-                console.log(result)
-                console.log('hit')
+
+            this.props.firestore.collection('Users').doc(user.uid).set({ First: firstName, Last: lastName, UID: user.uid }).then( (result) => {
+                this.props.history.push('/newTab')
             }).catch(function (error) {
                 console.log(error)
                 console.log('hit1')
@@ -44,13 +43,43 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div>
+            <div style={{ height: '100vh' }}>
+                <nav className="navbar navbar-expand-lg navbar-light bg-transparent">
+                    <div className='container'>
+                        <a className="navbar-brand " href="/">Tably</a>
+                        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"></span>
+                        </button>
 
-                <button className='btn btn-primary' onClick={this.GoogleLogin}>google login</button>
+                    </div>
+                </nav>
+                <div className='row justify-content-center align-items-center' style={{ height: '50%' }}>
+                <div className='col-3'>
+                    <div className='row justify-content-center'>
+                    <button className='btn btn-light shadow border' style={{ backgroundColor: 'white',width:'90%' }} onClick={this.GoogleLogin}>
+                        <img src='/googleLogo.png' style={{ height: '20px' }} />
+                        <span className='font-weight-bold ' style={{ color: '#4688F1', marginLeft: '5px' }}>Login with Google</span>
+                    </button>
+                    </div>
+                    <div className='row justify-content-center' style={{marginTop:'20px'}}>
 
+                    <button className='btn btn-light shadow border' style={{ backgroundColor: 'white',width:'90%' }} onClick={this.GoogleLogin}>
+                        <img src='/email.png' style={{ height: '25px' }} />
+                        <span className='font-weight-bold ' style={{ color: '#4688F1', marginLeft: '5px' }}>Login with Email</span>
+                    </button>
+                    </div>
+                    <div className='row justify-content-center' style={{marginTop:'15px'}}>
+                    <button className='btn btn-outline-primary' onClick={()=>{
+                        this.props.history.push('/')
+                        console.log('hit')
+                    }}> Back to Landing Page</button>
+                    </div>
+           
+                    </div>
+                </div>
             </div>
         )
     }
 }
 
-export default Login
+export default withRouter(Login)

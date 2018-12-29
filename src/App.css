@@ -106,7 +106,7 @@ input:focus {
 
 /* Landing */
 
-#donation_hands {
+.donation_hands {
   width: 600px;
   border-radius: 5px
   
@@ -137,5 +137,6 @@ input:focus {
 }
 
 .logos{
-  height: 100px
+  height: 100px;
+
 }

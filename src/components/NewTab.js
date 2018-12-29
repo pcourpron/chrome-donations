@@ -60,7 +60,7 @@ class NewTab extends React.Component{
             <Clock className={'clock'} format={'HH:mm'} ticking={true} />
             </div>
             <div className='row justify-content-center'>
-            <h4>{this.state.today}</h4>
+            <h4 style={{color:'white'}}>{this.state.today}</h4>
             </div>
             <div className='row justify-content-center' id='header'>
    
