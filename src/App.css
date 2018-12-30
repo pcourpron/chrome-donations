@@ -5,6 +5,10 @@
   position: relative;
 
 }
+
+.navbar-brand:hover{
+  cursor: pointer
+}
 .container-fluid {
   min-height: 100vh;
   padding:0;

@@ -4,12 +4,19 @@ import React from 'react'
 class AboutUsNav extends React.Component {
     NavbarClick = (location)=>{
         switch (location) {
+            case'home':
+            window.top.location = '/' 
+
+            break;
             case 'gmail':
                 window.top.location = 'https://mail.google.com/mail/u/0/' 
                 break;
-                
+
                 case 'aboutUs':
                 window.top.location = '/aboutUs' 
+                break;
+                case 'login':
+                window.top.location = '/login' 
                 break;
         
                 case 'newTab':
@@ -31,7 +38,7 @@ class AboutUsNav extends React.Component {
         return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
                 <div className='container'>
-                    <span className="navbar-brand" href="#">Tably</span>
+                    <span className="navbar-brand" onClick={()=>{this.NavbarClick('home')}} href="#">Tably</span>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>

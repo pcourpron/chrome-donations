@@ -4,6 +4,9 @@ import React from 'react'
 class Navbar extends React.Component {
     NavbarClick = (location)=>{
         switch (location) {
+            case 'home':
+                window.top.location = '/' 
+                break;
             case 'gmail':
                 window.top.location = 'https://mail.google.com/mail/u/0/' 
                 break;
@@ -25,7 +28,7 @@ class Navbar extends React.Component {
         return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
                 <div className='container'>
-                    <span className="navbar-brand nav-item" href="#">Tably</span>
+                    <span className="navbar-brand nav-item" href="#" onClick={()=>{this.NavbarClick('home')}}>Tably</span>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
