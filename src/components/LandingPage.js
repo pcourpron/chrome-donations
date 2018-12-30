@@ -6,7 +6,7 @@ class LandingPage extends React.Component {
     render() {
         return (
             <div >
-                <AboutUsNav />
+                <AboutUsNav/>
                 <div id='landing_page' className='container-fluid'>
                     <div className='row justify-content-center' id='header'>
                         <div className='col-xl-5 d-flex align-items-center justify-content-centee' style={{ paddingRight: '0' }}>

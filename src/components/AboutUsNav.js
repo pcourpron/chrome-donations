@@ -7,10 +7,14 @@ class AboutUsNav extends React.Component {
             case 'gmail':
                 window.top.location = 'https://mail.google.com/mail/u/0/' 
                 break;
+                
                 case 'aboutUs':
                 window.top.location = '/aboutUs' 
                 break;
         
+                case 'newTab':
+                window.top.location = '/newTab' 
+                break;
                 case 'newTab':
                 window.top.location = '/newTab' 
                 break;
@@ -33,13 +37,18 @@ class AboutUsNav extends React.Component {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav ml-auto">
+                        <li className="nav-item">
+                                <button className="nav-link" onClick={()=>{this.NavbarClick('login')}}>Login</button>
+                            </li>
+                           
                             <li className="nav-item">
                                 <button className="nav-link" onClick={()=>{this.NavbarClick('gmail')}} >Gmail </button>
                             </li>
-                    
                             <li className="nav-item">
                                 <button className="nav-link" onClick={()=>{this.NavbarClick('aboutUs')}}>About us</button>
-                            </li>
+                            </li> 
+                           
+                           
                             <li className="nav-item">
                                 <button className="nav-link" onClick={()=>{this.NavbarClick('newTab')}}>New Tab</button>
                             </li>

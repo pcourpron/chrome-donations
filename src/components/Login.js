@@ -41,6 +41,44 @@ class Login extends React.Component {
         });
     }
 
+    facebookLogin = () => {
+        console.log('jh')
+        this.props.firebase.auth().signInWithPopup(this.props.facebookProvider).then((result) => {
+            console.log('result')
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            var token = result.credential.accessToken;
+            // The signed-in user info.
+            var user = result.user;
+            var displayName = user.displayName.split(' ')
+            if (displayName.length === 2) {
+                var firstName = displayName[0]
+                var lastName = displayName[1]
+            }
+            else if (displayName.length === 3) {
+                var firstName = displayName[0]
+                var lastName = displayName[2]
+            }
+            console.log('hi')
+
+            this.props.firestore.collection('Users').doc(user.uid).set({ First: firstName, Last: lastName, UID: user.uid }).then( (result) => {
+                this.props.history.push('/newTab')
+                console.log('hit')
+            }).catch(function (error) {
+                console.log(error)
+                console.log('hit1')
+            });
+
+        }).catch(function (error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // The email of the user's account used.
+            var email = error.email;
+            // The firebase.auth.AuthCredential type that was used.
+            var credential = error.credential;
+            // ...
+        });
+    }
     render() {
         return (
             <div style={{ height: '100vh' }}>
@@ -56,22 +94,22 @@ class Login extends React.Component {
                 <div className='row justify-content-center align-items-center' style={{ height: '50%' }}>
                 <div className='col-3'>
                     <div className='row justify-content-center'>
-                    <button className='btn btn-light shadow border' style={{ backgroundColor: 'white',width:'90%' }} onClick={this.GoogleLogin}>
+                    <button className='btn btn-light shadow border' style={{ backgroundColor: 'white'}} onClick={this.GoogleLogin}>
                         <img src='/googleLogo.png' style={{ height: '20px' }} />
                         <span className='font-weight-bold ' style={{ color: '#4688F1', marginLeft: '5px' }}>Login with Google</span>
                     </button>
                     </div>
                     <div className='row justify-content-center' style={{marginTop:'20px'}}>
 
-                    <button className='btn btn-light shadow border' style={{ backgroundColor: 'white',width:'90%' }} onClick={this.GoogleLogin}>
+                    <button className='btn btn-light shadow border' style={{ backgroundColor: 'white'}} onClick={this.facebookLogin}>
                         <img src='/email.png' style={{ height: '25px' }} />
-                        <span className='font-weight-bold ' style={{ color: '#4688F1', marginLeft: '5px' }}>Login with Email</span>
+                        <span className='font-weight-bold ' style={{ color: '#4688F1', marginLeft: '5px' }}>Login with Facebook</span>
                     </button>
                     </div>
                     <div className='row justify-content-center' style={{marginTop:'15px'}}>
                     <button className='btn btn-outline-primary' onClick={()=>{
                         this.props.history.push('/')
-                        console.log('hit')
+
                     }}> Back to Landing Page</button>
                     </div>
            

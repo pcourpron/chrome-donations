@@ -21,6 +21,8 @@ var config = {
 firebase.initializeApp(config);
 
 var GoogleProvider = new firebase.auth.GoogleAuthProvider();
+var facebookProvider = new firebase.auth.FacebookAuthProvider();
+
 var firestore = firebase.firestore()
 
 const settings = { timestampsInSnapshots: true };
@@ -39,7 +41,10 @@ class App extends Component {
         <div className="App" >
           <Switch>
             <Route exact path='/newTab' render={() => (<NewTab />)} />
-            <Route exact path='/Login' render={() => (<Login GoogleProvider={GoogleProvider}
+            <Route exact path='/aboutUs' render={() => (<AboutUs />)} />
+            <Route exact path='/Login' render={() => (<Login 
+              GoogleProvider={GoogleProvider}
+              facebookProvider = {facebookProvider}
               firebase={firebase}
               firestore={firestore}
               history={history} />)} />
