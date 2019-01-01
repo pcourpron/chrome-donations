@@ -18,7 +18,6 @@ class AboutUsNav extends React.Component {
                 case 'login':
                 window.top.location = '/login' 
                 break;
-        
                 case 'newTab':
                 window.top.location = '/newTab' 
                 break;

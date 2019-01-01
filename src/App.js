@@ -50,6 +50,7 @@ class App extends Component {
               history={history} />)} />
             <Route render={() => (<LandingPage />)} />
           </Switch>
+
         </div>
       </Router>
 

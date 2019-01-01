@@ -58,14 +58,11 @@ class Login extends React.Component {
                 var firstName = displayName[0]
                 var lastName = displayName[2]
             }
-            console.log('hi')
 
             this.props.firestore.collection('Users').doc(user.uid).set({ First: firstName, Last: lastName, UID: user.uid }).then( (result) => {
                 this.props.history.push('/newTab')
-                console.log('hit')
             }).catch(function (error) {
                 console.log(error)
-                console.log('hit1')
             });
 
         }).catch(function (error) {
