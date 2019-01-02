@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import Clock from 'react-live-clock';
 import Background from '../assets/images/snow_mountain.jpg'
 import moment from 'moment'
+import ScriptTag from 'react-script-tag'
 
 class NewTab extends React.Component{
     state = {
@@ -44,27 +45,8 @@ class NewTab extends React.Component{
           () => this.setState({ date: new Date() }),
           1000
         );
-        (function(d) {
-          var params =
-          {
-            bvwidgetid: "ntv_1976489",
-            bvlinksownid: 1976489,
-            rows: 1,
-            cols: 3,
-            textpos: "below",
-            imagewidth: 150,
-            mobilecols: 1,
-            cb: (new Date()).getTime()
-          };
-          console.log(d.getElementById("ntv_1976489"))
-          params.bvwidgetid = "ntv_1976489" + params.cb;
-          d.getElementById("ntv_1976489").id = params.bvwidgetid;
-          var qs = Object.keys(params).reduce(function(a, k){ a.push(k + '=' + encodeURIComponent(params[k])); return a},[]).join(String.fromCharCode(38));
-          var s = d.createElement('script'); s.type='text/javascript';s.async=true;
-          var p = 'https:' == document.location.protocol ? 'https' : 'http';
-          s.src = p + "://bvadtgs.scdn1.secure.raxcdn.com/bidvertiser/tags/active/bdvws.js?" + qs;
-          d.getElementById(params.bvwidgetid).appendChild(s);
-        })(document);
+      
+    
     
         
       }
@@ -104,12 +86,11 @@ class NewTab extends React.Component{
                 </div>
               </form>
             </div>
-          </div>
-          <div id="ezoic-pub-ad-placeholder-102"></div>
-        <div id="ntv_1976489"></div>
 
+          </div>
         </header>
 
+        <ScriptTag type="text/javascript" src="//ylx-1.com/bnr.php?section=General&pub=725793&format=300x250&ga=g" />
 
         </div>
         )
