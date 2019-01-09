@@ -2,10 +2,9 @@
 <html lang="en">
 
 <head>
-  
+    <meta name="clckd" content="8ec5b1f39c5f02868feddf64178f5395" />
   <meta charset="utf-8">
   <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-  <meta name="propeller" content="128b639ad36e21d80dea3f219f691095">
   <!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -64,9 +63,26 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-    <script async="async" data-cfasync="false" src="//tharbadir.com/2?z=2277268"></script>
-    <script type="text/javascript" src="//bodelen.com/apu.php?zoneid=2278346"></script>
-      </body>
+    <script id="spout-tag-16cff7ec-f74b-482b-ba36-1d789ace240a">
+        (function() {
+          var r = encodeURIComponent(top.document.referrer.substring(0,250)),
+              p = encodeURIComponent(top.document.location.href.substring(0,250)),
+              t = Date.now(),
+              u = '16cff7ec-f74b-482b-ba36-1d789ace240a',
+              e = document.createElement('script'),
+              s = sessionStorage.getItem('spoutable-' + u);
+          if (!s) {
+            var m = Math.random.bind(Math);
+            s = JSON.stringify({ sessionId: [ t, m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), m() ]});
+            sessionStorage.setItem('spoutable-' + u, s);
+          }
+          e.async = true;
+          e.src='//s.spoutable.com/s?u='+u+'&s='+encodeURIComponent(s)+'&t='+t+'&r='+r+'&p='+p;
+          document.head.appendChild(e);
+        })();
+      </script>
+      
+        </body>
 </html>
 
 

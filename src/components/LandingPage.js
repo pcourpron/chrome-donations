@@ -19,7 +19,7 @@ class LandingPage extends React.Component {
                                 <button className='btn btn-primary font-weight-bold' style={{ margin: '0 auto', display: 'block' }}>GET IT FOR CHROME</button>
                             </div>
                         </div>
-
+                      
                         <div className='col-xl-7' style={{ paddingRight: '0' }}>
                             <div className='row h-100 justify-content-end'>
                                 <img src={'giving.jpg'} style={{ height: '630px' }} />
@@ -54,7 +54,7 @@ class LandingPage extends React.Component {
                                 at no cost to you so that they can focus on things other than fundraising.
                                     </p>
                         </div>
-
+                
                     </div>
                     <div className='row' >
                         <div className='col-lg-6'>
