@@ -47,31 +47,12 @@ class NewTab extends React.Component {
       1000
     );
 
-
-    var venus164843 = { blockId: "164843", async: true };
-    (function (w, d, o, t) {
-      console.log('hit')
-      o.send = function () {
-        (o.queue = o.queue || []).push(arguments);
-      };
-      var s = d.createElement(t);
-      if (o.async) s.async = 1;
-      s.src = "//block.sw2block.com/rotator/164843.js";
-      var i = d.getElementsByTagName(t)[0];
-      i.parentNode.insertBefore(s, i);
-      o.send("pageview");
-    })(window, document, venus164843, "script");
-
-
-
-
-
   }
 
   render() {
     return (
       <div id='new-tab'>
-        <Navbar />
+        <Navbar background='navbar-dark'/>
         <div className='overlay'></div>
 
         <header className="container-fluid" id='background' style={{ backgroundImage: `url(${Background})` }}>

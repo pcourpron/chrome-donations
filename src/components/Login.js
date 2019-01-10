@@ -22,8 +22,9 @@ class Login extends React.Component {
                 var lastName = displayName[2]
             }
 
-            this.props.firestore.collection('Users').doc(user.uid).set({ First: firstName, Last: lastName, UID: user.uid }).then( (result) => {
+            this.props.firestore.collection('Users').doc(user.uid).set({ First: firstName, Last: lastName, UID: user.uid }).then((result) => {
                 this.props.history.push('/newTab')
+
             }).catch(function (error) {
                 console.log(error)
                 console.log('hit1')
@@ -42,12 +43,10 @@ class Login extends React.Component {
     }
 
     facebookLogin = () => {
-        console.log('jh')
         this.props.firebase.auth().signInWithPopup(this.props.facebookProvider).then((result) => {
-            console.log('result')
-            // This gives you a Google Access Token. You can use it to access the Google API.
-            var token = result.credential.accessToken;
-            // The signed-in user info.
+
+            console.log(result)
+
             var user = result.user;
             var displayName = user.displayName.split(' ')
             if (displayName.length === 2) {
@@ -59,13 +58,15 @@ class Login extends React.Component {
                 var lastName = displayName[2]
             }
 
-            this.props.firestore.collection('Users').doc(user.uid).set({ First: firstName, Last: lastName, UID: user.uid }).then( (result) => {
+            this.props.firestore.collection('Users').doc(user.uid).set({ First: firstName, Last: lastName, UID: user.uid }).then((result) => {
+
                 this.props.history.push('/newTab')
             }).catch(function (error) {
                 console.log(error)
             });
 
         }).catch(function (error) {
+            console.log(error)
             // Handle Errors here.
             var errorCode = error.code;
             var errorMessage = error.message;
@@ -89,27 +90,27 @@ class Login extends React.Component {
                     </div>
                 </nav>
                 <div className='row justify-content-center align-items-center' style={{ height: '50%' }}>
-                <div className='col-3'>
-                    <div className='row justify-content-center'>
-                    <button className='btn btn-light shadow border' style={{ backgroundColor: 'white'}} onClick={this.GoogleLogin}>
-                        <img src='/googleLogo.png' style={{ height: '20px' }} />
-                        <span className='font-weight-bold ' style={{ color: '#4688F1', marginLeft: '5px' }}>Login with Google</span>
-                    </button>
-                    </div>
-                    <div className='row justify-content-center' style={{marginTop:'20px'}}>
+                    <div className='col-3'>
+                        <div className='row justify-content-center'>
+                            <button className='btn btn-light shadow border' style={{ backgroundColor: 'white' }} onClick={this.GoogleLogin}>
+                                <img src='/googleLogo.png' style={{ height: '25px' }} />
+                                <span className='font-weight-bold ' style={{ color: '#4688F1', marginLeft: '5px' }}>Login with Google</span>
+                            </button>
+                        </div>
+                        <div className='row justify-content-center' style={{ marginTop: '20px' }}>
 
-                    <button className='btn btn-light shadow border' style={{ backgroundColor: 'white'}} onClick={this.facebookLogin}>
-                        <img src='/email.png' style={{ height: '25px' }} />
-                        <span className='font-weight-bold ' style={{ color: '#4688F1', marginLeft: '5px' }}>Login with Facebook</span>
-                    </button>
-                    </div>
-                    <div className='row justify-content-center' style={{marginTop:'15px'}}>
-                    <button className='btn btn-outline-primary' onClick={()=>{
-                        this.props.history.push('/')
+                            <button className='btn btn-light shadow border' style={{ backgroundColor: 'white' }} onClick={this.facebookLogin}>
+                                <img src='https://www.carlalbert.edu/wp-content/uploads/2018/03/facebook_logos_PNG19751.png' style={{ height: '25px' }} />
+                                <span className='font-weight-bold ' style={{ color: '#4688F1', marginLeft: '5px' }}>Login with Facebook</span>
+                            </button>
+                        </div>
+                        <div className='row justify-content-center' style={{ marginTop: '15px' }}>
+                            <button className='btn btn-outline-primary' onClick={() => {
+                                this.props.history.push('/')
 
-                    }}> Back to Landing Page</button>
-                    </div>
-           
+                            }}> Back to Landing Page</button>
+                        </div>
+                        
                     </div>
                 </div>
             </div>

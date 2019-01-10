@@ -91,7 +91,10 @@ input:focus {
 
 #about_us{
   padding: 56px 20px 0;
- 
+}
+#settings{
+  max-height: 85vh;
+  margin: 80px 20px 0
 }
 
 #about_us .container-fluid .row .row {
@@ -143,4 +146,20 @@ input:focus {
 .logos{
   height: 100px;
 
+}
+
+#about_us{
+  padding-top: 56px;
+  background-image: url('https://www.gijoepersonaltraining.co.uk/wp-content/uploads/2018/11/Light-paper-fibers-Seamless-Pattern.jpg');
+  background-repeat: repeat;
+ background-size:contain;
+
+}
+
+.option{
+  padding: 10px 0 10px 25px
+}
+.option:hover{
+  background-color:lightgrey;
+  transition: .5s
 }

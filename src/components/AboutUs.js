@@ -16,8 +16,7 @@ class AboutUs extends React.Component {
             <div id='about_us'>
                 <AboutUsNav />
                 <div className='container-fluid'>
-                    <div className='row justify-content-center'>
-                        
+                    <div className='row justify-content-center' style={{padding:'30px 0'}}>
                         <h2> About Us</h2>
                     </div>
                     <div className='row'>

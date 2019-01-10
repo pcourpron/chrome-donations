@@ -3,10 +3,11 @@ import './App.css';
 import AboutUs from './components/AboutUs'
 import NewTab from './components/NewTab'
 import Login from './components/Login'
+import Settings from './components/Settings'
 
 import firebase from 'firebase'
 import LandingPage from './components/LandingPage';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import { createBrowserHistory } from 'history';
 
 var history = createBrowserHistory()
@@ -30,29 +31,66 @@ firestore.settings(settings);
 
 class App extends Component {
 
+  state = {
+    loaded: null,
+    user: null
+  }
+
+  componentWillMount = () => {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        console.log(user)
+        this.setState({ user: true }, () => {
+          this.setState({ loaded: true })
+        })
+      }
+
+      else {
+        this.setState({ loaded: true })
+      }
+    })
+
+
+  }
   render() {
-    return (
+    if (!this.state.loaded) {
+      return null;
+    }
 
-      <Router>
+    else {
+
+      return (
+        <Router>
+          <div className="App" >
+            <Switch>
+
+              <Route exact path='/aboutUs' render={() => (<AboutUs />)} />
+              <Route exact path='/Login' render={() => (<Login
+                GoogleProvider={GoogleProvider}
+                facebookProvider={facebookProvider}
+                firebase={firebase}
+                firestore={firestore}
+                history={history}
+                changeUser={this.changeUser} />)} />
 
 
-        <div className="App" >
-          <Switch>
-            <Route exact path='/newTab' render={() => (<NewTab />)} />
-            <Route exact path='/aboutUs' render={() => (<AboutUs />)} />
-            <Route exact path='/Login' render={() => (<Login 
-              GoogleProvider={GoogleProvider}
-              facebookProvider = {facebookProvider}
-              firebase={firebase}
-              firestore={firestore}
-              history={history} />)} />
-            <Route render={() => (<LandingPage />)} />
-          </Switch>
 
-        </div>
-      </Router>
+              <Route exact path='/newTab' render={() => {
+                return this.state.user ? <NewTab /> : <Redirect to='/Login' />
+              }} />
+              <Route exact path='/settings' render={() => {
+                return this.state.user ? <Settings /> : <Redirect to='/Login' />
+              }} />
 
-    );
+              <Route exact path='*' render={() => (<LandingPage />)} />
+
+            </Switch>
+
+          </div>
+        </Router>
+
+      )
+    }
   }
 }
 

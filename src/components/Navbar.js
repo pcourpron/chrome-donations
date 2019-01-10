@@ -26,7 +26,7 @@ class Navbar extends React.Component {
 
     render() {
         return (
-            <nav className="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
+            <nav className={`navbar navbar-expand-lg ${this.props.transparent} fixed-top ${this.props.background}`}>
                 <div className='container'>
                     <span className="navbar-brand nav-item" href="#" onClick={()=>{this.NavbarClick('home')}}>Tably</span>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,9 +41,14 @@ class Navbar extends React.Component {
                             <li className="nav-item">
                                 <button className="nav-link" onClick={()=>{this.NavbarClick('aboutUs')}}>About us</button>
                             </li>
+
+                            {this.props.page === 'settings' ? <li className="nav-item">
+                                <button className="nav-link" onClick={()=>{this.NavbarClick('newTab')}}>New Tab</button>
+                            </li> :
                             <li className="nav-item">
                                 <button className="nav-link" onClick={()=>{this.NavbarClick('settings')}}>Settings</button>
                             </li>
+                            }
                         </ul>
                     </div>
                 </div>
