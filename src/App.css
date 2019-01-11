@@ -163,3 +163,10 @@ input:focus {
   background-color:lightgrey;
   transition: .5s
 }
+
+/* Settings */
+
+.background-img{
+  height: 150px;
+
+}

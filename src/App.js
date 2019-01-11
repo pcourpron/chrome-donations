@@ -40,9 +40,7 @@ class App extends Component {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         console.log(user)
-        this.setState({ user: true }, () => {
-          this.setState({ loaded: true })
-        })
+        this.setState({ user: true, loaded:true, userID: user.uid })
       }
 
       else {
@@ -76,13 +74,13 @@ class App extends Component {
 
 
               <Route exact path='/newTab' render={() => {
-                return this.state.user ? <NewTab /> : <Redirect to='/Login' />
+                return this.state.user ? <NewTab firebase={firebase} userID={this.state.userID}/> : <Redirect to='/Login' />
               }} />
               <Route exact path='/settings' render={() => {
-                return this.state.user ? <Settings /> : <Redirect to='/Login' />
+                return this.state.user ? <Settings firebase={firebase} /> : <Redirect to='/Login' />
               }} />
 
-              <Route exact path='*' render={() => (<LandingPage />)} />
+              <Route exact path='*' render={() => (<LandingPage user={this.state.user} />)} />
 
             </Switch>
 

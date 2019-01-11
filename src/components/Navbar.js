@@ -17,6 +17,9 @@ class Navbar extends React.Component {
                 case 'settings':
                 window.top.location = '/settings' 
                 break;
+                case 'newTab':
+                window.top.location = '/newTab' 
+                break;
         
             default:
                 break;
