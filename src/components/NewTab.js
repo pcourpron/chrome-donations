@@ -47,7 +47,7 @@ class NewTab extends React.Component {
       1000
     );
    
-
+/*
     this.props.firebase.firestore().collection('Users').doc(this.props.userID).get().then((doc)=> {
       if (doc.exists) {
         if (doc.data().tabCount){
@@ -65,7 +65,7 @@ class NewTab extends React.Component {
   });
   
 
-
+*/
 
    
   }
