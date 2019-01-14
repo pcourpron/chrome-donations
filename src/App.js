@@ -81,13 +81,13 @@ logOut=()=>{
 
 
               <Route exact path='/newTab' render={() => {
-                return this.state.user ? <NewTab firebase={firebase} userID={this.state.userID}/> : <Redirect to='/Login' />
+                return true ? <NewTab firebase={firebase} userID={this.state.userID}/> : <Redirect to='/Login' />
               }} />
               <Route exact path='/settings' render={() => {
-                return this.state.user ? <Settings firebase={firebase} logOut = {this.logOut}/> : <Redirect to='/Login' />
+                return true ? <Settings firebase={firebase} logOut = {this.logOut}/> : <Redirect to='/Login' />
               }} />
 
-              <Route exact path='*' render={() => (<LandingPage user={this.state.usere} />)} />
+              <Route exact path='*' render={() => (<LandingPage user={this.state.user} />)} />
 
             </Switch>
 
