@@ -110,7 +110,9 @@ class NewTab extends React.Component {
             </div>
      
           </div>
-          <div  class='align-self-end' id="chitikaAdBlock-0" style={{zIndex:10000, position:'relative',marginTop:'200px'}}></div>
+    <ins data-zone="184040" className="byadthink"></ins>
+
+          <div  className='align-self-end' id="chitikaAdBlock-0" style={{zIndex:10000, position:'relative',marginTop:'200px'}}></div>
 
         </header>
 
