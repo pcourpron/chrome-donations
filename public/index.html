@@ -65,10 +65,10 @@
   <div id="root"></div>
   <script type="text/javascript">
     ( function() {
-      if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
+      if (window.top.CHITIKA === undefined) { window.top.CHITIKA = { 'units' : [] }; };
       var unit = {"calltype":"async[2]","publisher":"pcourpron","width":728,"height":90,"sid":"Chitika Default"};
-      var placement_id = window.CHITIKA.units.length;
-      window.CHITIKA.units.push(unit);
+      var placement_id = window.top.CHITIKA.units.length;
+      window.top.CHITIKA.units.push(unit);
 
   }());
   </script>
