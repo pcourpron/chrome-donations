@@ -46,6 +46,7 @@ class NewTab extends React.Component {
       () => this.setState({ date: new Date() }),
       1000
     );
+   
 
     this.props.firebase.firestore().collection('Users').doc(this.props.userID).get().then((doc)=> {
       if (doc.exists) {
@@ -63,8 +64,10 @@ class NewTab extends React.Component {
       console.log("Error getting document:", error);
   });
   
-    this.props.firebase.firestore().collection('Users').doc('tabCount')
 
+
+
+   
   }
 
   render() {
@@ -74,6 +77,7 @@ class NewTab extends React.Component {
         <div className='overlay'></div>
 
         <header className="container-fluid" id='background' style={{ backgroundImage: `url(${Background})` }}>
+          
           <div className='row'>
             <div className='col'>
               <div className='row justify-content-center'>
@@ -105,8 +109,9 @@ class NewTab extends React.Component {
 
             </div>
      
-
           </div>
+          <div  class='align-self-end' id="chitikaAdBlock-0" style={{zIndex:10000, position:'relative',marginTop:'200px'}}></div>
+
         </header>
 
 

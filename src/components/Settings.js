@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 
 class Settings extends React.Component {
+    
     render() {
         return (
             <div id='settings'>
@@ -27,7 +28,7 @@ class Settings extends React.Component {
                             <div className='row option'>
                                 <span>Your Info</span>
                             </div>
-                            <div className='row option'>
+                            <div className='row option' onClick= {()=>(this.props.logOut())}>
                                 <span>Log Out</span>
                             </div>
                         </div>

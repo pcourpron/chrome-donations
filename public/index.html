@@ -63,6 +63,17 @@
     You need to enable JavaScript to run this app.
   </noscript>
   <div id="root"></div>
+  <script type="text/javascript">
+    ( function() {
+      if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
+      var unit = {"calltype":"async[2]","publisher":"pcourpron","width":728,"height":90,"sid":"Chitika Default"};
+      var placement_id = window.CHITIKA.units.length;
+      window.CHITIKA.units.push(unit);
+
+  }());
+  </script>
+  <script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
+    
   <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -74,8 +85,7 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   
-
-      
+  
         </body>
 </html>
 

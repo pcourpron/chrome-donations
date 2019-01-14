@@ -35,6 +35,14 @@ class App extends Component {
     loaded: null,
     user: null
   }
+logOut=()=>{
+    firebase.auth().signOut().then(()=> {
+        console.log('Signed Out');
+        this.setState({user:null})
+      }, function(error) {
+        console.error('Sign Out Error', error);
+      });
+}
 
   componentWillMount = () => {
     firebase.auth().onAuthStateChanged((user) => {
@@ -47,7 +55,6 @@ class App extends Component {
         this.setState({ loaded: true })
       }
     })
-
 
   }
   render() {
@@ -77,10 +84,10 @@ class App extends Component {
                 return this.state.user ? <NewTab firebase={firebase} userID={this.state.userID}/> : <Redirect to='/Login' />
               }} />
               <Route exact path='/settings' render={() => {
-                return this.state.user ? <Settings firebase={firebase} /> : <Redirect to='/Login' />
+                return this.state.user ? <Settings firebase={firebase} logOut = {this.logOut}/> : <Redirect to='/Login' />
               }} />
 
-              <Route exact path='*' render={() => (<LandingPage user={this.state.user} />)} />
+              <Route exact path='*' render={() => (<LandingPage user={this.state.usere} />)} />
 
             </Switch>
 
