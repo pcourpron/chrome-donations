@@ -7,11 +7,11 @@ const options = [
     { value: 'OIC', label: 'Orthopeadic Institute for Children' },
     { value: 'Saint Joseph Center', label: 'Saint Joseph Center' },
     { value: 'charityWater', label: 'Charity: Water' },
-    { value: `UCLA Spirit Squad`, label: `UCLA Spirit Squad` }
+    { value: `UCLA Spirit Squad`, label: `UCLA Spirit Squad` },
     { value: 'St. Jude ', label: "St. Jude Children's Research Hospital" },
     { value: `UCLA Men's rugby`, label: `UCLA Men's rugby` },
     { value: `SMRC`, label: `Santa Monica Rugby Club` },
-    { value: `Doctors without borders`, label: `Doctors without borders` },
+    { value: `Doctors without borders`, label: `Doctors without borders` }
     
 ];
 
