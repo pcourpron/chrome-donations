@@ -35,7 +35,7 @@ class Settings extends React.Component {
                 <Navbar background='navbar-dark' page='settings' transparent='bg-dark' />
                 <div className='container-fluid'>
                     <div className='row' style={{ height: '100%' }}>
-                        <div className='col-md-3'>
+                        <div className='col-md-3' >
                             <div className='row category' >
                                 <span style={{ color: 'grey' }}>Settings</span>
                             </div>

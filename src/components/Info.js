@@ -66,7 +66,7 @@ class Info extends React.Component {
                     />
                 </div>
                 <div className='row info_row'>
-                <button className='btn btn-outline-primary' onClick={() => { this.props.changeNonProfit(this.state.selectedOption.value)}} > Submit Changes</button>
+                <button className='btn btn-outline-primary' onClick={() => { this.props.changeNonProfit(this.state.selectedOption.label)}} > Submit Changes</button>
                 </div>
 
 

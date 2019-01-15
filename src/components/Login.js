@@ -23,13 +23,18 @@ class Login extends React.Component {
                 var lastName = displayName[2]
             }
 
+            if (!user.uid){
             this.props.firestore.collection('Users').doc(user.uid).set({ First: firstName, Last: lastName, UID: user.uid }).then((result) => {
                 this.props.history.push('/newTab')
+            
 
             }).catch(function (error) {
                 console.log(error)
-                console.log('hit1')
             });
+        }
+        else{
+            this.props.history.push('/newTab')
+        }
 
         }).catch(function (error) {
             // Handle Errors here.
@@ -46,9 +51,6 @@ class Login extends React.Component {
 
     facebookLogin = () => {
         this.props.firebase.auth().signInWithPopup(this.props.facebookProvider).then((result) => {
-
-            console.log(result)
-
             var user = result.user;
             var displayName = user.displayName.split(' ')
             if (displayName.length === 2) {
@@ -59,13 +61,16 @@ class Login extends React.Component {
                 var firstName = displayName[0]
                 var lastName = displayName[2]
             }
-
-            this.props.firestore.collection('Users').doc(user.uid).set({ First: firstName, Last: lastName, UID: user.uid }).then((result) => {
-
+            if (!user.uid){
+                this.props.firestore.collection('Users').doc(user.uid).set({ First: firstName, Last: lastName, UID: user.uid }).then((result) => {
                 this.props.history.push('/newTab')
             }).catch(function (error) {
                 console.log(error)
-            });
+            });}
+            else{
+                this.props.history.push('/newTab')
+      
+            }
 
         }).catch(function (error) {
             console.log(error)
