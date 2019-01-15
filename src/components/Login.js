@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom';
 
 class Login extends React.Component {
 
+
     GoogleLogin = () => {
         this.props.firebase.auth().signInWithPopup(this.props.GoogleProvider).then((result) => {
             // This gives you a Google Access Token. You can use it to access the Google API.
@@ -90,28 +91,41 @@ class Login extends React.Component {
 
                     </div>
                 </nav>
-                <div className='row justify-content-center align-items-center' style={{ height: '50%' }}>
-                    <div className='col-3'>
-                        <div className='row justify-content-center'>
-                            <button className='btn btn-light shadow border' style={{ backgroundColor: 'white' }} onClick={this.GoogleLogin}>
-                                <img src='/googleLogo.png' style={{ height: '25px' }} />
-                                <span className='font-weight-bold ' style={{ color: '#4688F1', marginLeft: '5px' }}>Login with Google</span>
-                            </button>
-                        </div>
-                        <div className='row justify-content-center' style={{ marginTop: '20px' }}>
+                <div className='container-fluid'>
+                    <div className='row justify-content-center align-items-center' style={{ height: '80vh' }} >
+                        <div className='col-6 '>
+                            <div className='row justify-content-center'>
+                                <button className='btn btn-light shadow border' style={{ backgroundColor: 'white' }} onClick={this.GoogleLogin}>
+                                    <img src='/googleLogo.png' style={{ height: '25px' }} />
+                                    <span className='font-weight-bold ' style={{ color: '#4688F1', marginLeft: '5px' }}>Login with Google</span>
+                                </button>
+                            </div>
+                            <div className='row justify-content-center' style={{ marginTop: '20px' }}>
 
-                            <button className='btn btn-light shadow border' style={{ backgroundColor: 'white' }} onClick={this.facebookLogin}>
-                                <img src='https://www.carlalbert.edu/wp-content/uploads/2018/03/facebook_logos_PNG19751.png' style={{ height: '25px' }} />
-                                <span className='font-weight-bold ' style={{ color: '#4688F1', marginLeft: '5px' }}>Login with Facebook</span>
-                            </button>
-                        </div>
-                        <div className='row justify-content-center' style={{ marginTop: '15px' }}>
-                            <button className='btn btn-outline-primary' onClick={() => {
-                                this.props.history.push('/')
+                                <button className='btn btn-light shadow border' style={{ backgroundColor: 'white' }} onClick={this.facebookLogin}>
+                                    <img src='https://www.carlalbert.edu/wp-content/uploads/2018/03/facebook_logos_PNG19751.png' style={{ height: '25px' }} />
+                                    <span className='font-weight-bold ' style={{ color: '#4688F1', marginLeft: '5px' }}>Login with Facebook</span>
+                                </button>
+                            </div>
+                            <div className='row justify-content-center' style={{ marginTop: '15px' }}>
+                                <button className='btn btn-outline-primary' onClick={() => {
+                                    this.props.history.push('/')
 
-                            }}> Back to Landing Page</button>
+                                }}> Back to Landing Page</button>
+                            </div>
+                            <div className='row justify-content-center' style={{ marginTop: '15px' }}>
+
+                                <div className='row justify-content-center' style={{ marginTop: '15px' }}>
+                                    <p className='login-info text-center' > In order to track the amount of money you've raised for your charity, you need to login for us to keep track of the number of ads you've viewed.
+                                    Tably does not track or store your search history or save any personal information about you except for your name, number of tabs opened, charity of choice and some personal preferences.
+                                Tably does not share personal information with third parties except to provide services necessary to use this chrome extension.</p>
+                                </div>
+
+                            </div>
+                           
                         </div>
-                        
+
+
                     </div>
                 </div>
             </div>

@@ -33,7 +33,8 @@ class App extends Component {
 
   state = {
     loaded: null,
-    user: null
+    user: null,
+    tabs: null
   }
 logOut=()=>{
     firebase.auth().signOut().then(()=> {
@@ -48,7 +49,7 @@ logOut=()=>{
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         console.log(user)
-        this.setState({ user: true, loaded:true, userID: user.uid })
+        this.setState({ user: true, loaded:true, userID: user.uid})
       }
 
       else {
@@ -84,7 +85,7 @@ logOut=()=>{
                 return true ? <NewTab firebase={firebase} userID={this.state.userID}/> : <Redirect to='/Login' />
               }} />
               <Route exact path='/settings' render={() => {
-                return true ? <Settings firebase={firebase} logOut = {this.logOut}/> : <Redirect to='/Login' />
+                return true ? <Settings firebase={firebase} logOut = {this.logOut} uid = {this.state.userID}/> : <Redirect to='/Login' />
               }} />
 
               <Route exact path='*' render={() => (<LandingPage user={this.state.user} />)} />

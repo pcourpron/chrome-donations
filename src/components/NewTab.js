@@ -10,8 +10,9 @@ class NewTab extends React.Component {
   state = {
     input: undefined,
     date: new Date(),
+    today: moment().local().format('LL'),
     background: null,
-    today: moment().local().format('LL')
+  
   }
   sendToGoogle = (event) => {
     event.preventDefault()
@@ -34,9 +35,16 @@ class NewTab extends React.Component {
   }
 
   setBackground() {
-    var backgrounds = ['lavander', 'snow_mountain', 'waterfall', 'wooden_boat'];
-    let selection = Math.ceil(Math.random() * 4)
+    var lavander ='https://firebasestorage.googleapis.com/v0/b/tably-f516a.appspot.com/o/lavander.jpg?alt=media&token=fcdd570e-5c50-468b-b65c-c392d848b294'
+    var boat  = 'https://firebasestorage.googleapis.com/v0/b/tably-f516a.appspot.com/o/wooden_boat.jpg?alt=media&token=acc5b093-1dca-4a0c-9b3b-bfe3c4c8935a'
+    var mountain = 'https://firebasestorage.googleapis.com/v0/b/tably-f516a.appspot.com/o/snow_mountain.jpg?alt=media&token=b6ba1621-93c9-4d76-9c95-637653f6cf1f'
+    var backgrounds = [lavander,boat,mountain];
+    let selection = Math.floor(Math.random() * 3)
     this.setState({ background: backgrounds[selection] })
+  }
+
+  componentWillMount(){
+
   }
 
 
@@ -76,7 +84,7 @@ class NewTab extends React.Component {
         <Navbar background='navbar-dark'/>
         <div className='overlay'></div>
 
-        <header className="container-fluid" id='background' style={{ backgroundImage: `url(${Background})` }}>
+        <header className="container-fluid" id='background' style={{ backgroundImage: `url(${this.state.background})` }}>
           
           <div className='row'>
             <div className='col'>

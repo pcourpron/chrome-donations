@@ -161,12 +161,17 @@ input:focus {
 }
 .option:hover{
   background-color:lightgrey;
-  transition: .5s
+  transition: .5s;
+  cursor: pointer;
 }
 
 /* Settings */
 
 .background-img{
   height: 150px;
+  cursor: pointer;
+}
 
+.login-info{
+  font-size: 12px
 }

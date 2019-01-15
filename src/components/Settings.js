@@ -1,9 +1,25 @@
 import React from 'react';
 import Navbar from './Navbar'
 import { withRouter } from 'react-router-dom';
+import Backgrounds from './Backgrounds'
+import Statistics from './Statistics';
+import Info from './Info'
 
 
 class Settings extends React.Component {
+    state = {
+        selection: 'background',
+        tabs : null,
+        fullName: null,
+        
+    }
+    componentDidMount=()=>{
+        this.props.firebase.firestore().collection('Users').doc(this.props.uid).get().then((doc)=>{
+            if (doc.data().tabCount){
+                this.setState({tabs:doc.data().tabCount, fullName: `${doc.data().First} ${doc.data().Last}`})
+            }
+        })
+    }
     
     render() {
         return (
@@ -15,17 +31,14 @@ class Settings extends React.Component {
                             <div className='row category' >
                                 <span style={{ color: 'grey' }}>Settings</span>
                             </div>
-                            <div className='row option'>
+                            <div className='row option' onClick= {()=>{ this.setState({selection:'background'})}}>
                                 <span>Background Image</span>
                             </div>
 
                             <div className='row category' >
                                 <span style={{ color: 'grey' }}>Profile</span>
                             </div>
-                            <div className='row option'>
-                                <span>Statistics</span>
-                            </div>
-                            <div className='row option'>
+                            <div className='row option' onClick= {()=>{ this.setState({selection:'info'})}}>
                                 <span>Your Info</span>
                             </div>
                             <div className='row option' onClick= {()=>(this.props.logOut())}>
@@ -34,17 +47,8 @@ class Settings extends React.Component {
                         </div>
 
                         <div className='col-md-9'>
-                            <div className='row justify-content-center' style={{padding:'20px 0'}}>
-                                <h5>Choose a background</h5>
-                            </div>
-                            <div className='row justify-content-around'>
-                                <img className='background-img' src='https://firebasestorage.googleapis.com/v0/b/tably-f516a.appspot.com/o/snow_mountain.jpg?alt=media&token=b6ba1621-93c9-4d76-9c95-637653f6cf1f' />
-                                <img className='background-img' src='https://firebasestorage.googleapis.com/v0/b/tably-f516a.appspot.com/o/lavander.jpg?alt=media&token=fcdd570e-5c50-468b-b65c-c392d848b294' />
-                                <img className='background-img' src='https://firebasestorage.googleapis.com/v0/b/tably-f516a.appspot.com/o/wooden_boat.jpg?alt=media&token=acc5b093-1dca-4a0c-9b3b-bfe3c4c8935a' />
-
-
-                            </div>
-
+                         { this.state.selection === 'background' ? <Backgrounds/>: <Info fullName={this.state.fullName} tabs ={this.state.tabs}/>}
+                         
                         </div>
                     </div>
 
