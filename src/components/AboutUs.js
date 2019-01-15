@@ -2,19 +2,14 @@
 import AboutUsNav from './AboutUsNav';
 
 class AboutUs extends React.Component {
-    state = {
-        test: 0
-    }
-
-    componentDidMount=()=>{
-        setInterval(()=>{
-            this.setState({test:this.state.test+1})
-        },1000)
-    }
+   
     render() {
         return (
             <div id='about_us'>
-                <AboutUsNav />
+            {console.log(this.props)}
+
+            {console.log(this.props.user)}
+                <AboutUsNav user={this.props.user}/>
                 <div className='container-fluid'>
                     <div className='row justify-content-center' style={{padding:'30px 0'}}>
                         <h2> About Us</h2>

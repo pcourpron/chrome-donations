@@ -38,8 +38,8 @@ class App extends Component {
   }
 logOut=()=>{
     firebase.auth().signOut().then(()=> {
-        console.log('Signed Out');
         this.setState({user:null})
+
       }, function(error) {
         console.error('Sign Out Error', error);
       });
@@ -69,8 +69,8 @@ logOut=()=>{
         <Router>
           <div className="App" >
             <Switch>
-
-              <Route exact path='/aboutUs' render={() => (<AboutUs />)} />
+              {console.log(this.state.user)}
+              <Route exact path='/aboutUs'   render={() => (<AboutUs user = {this.state.user} />)} />
               <Route exact path='/Login' render={() => (<Login
                 GoogleProvider={GoogleProvider}
                 facebookProvider={facebookProvider}
@@ -82,10 +82,10 @@ logOut=()=>{
 
 
               <Route exact path='/newTab' render={() => {
-                return true ? <NewTab firebase={firebase} userID={this.state.userID}/> : <Redirect to='/Login' />
+                return this.state.user ? <NewTab firebase={firebase} userID={this.state.userID}/> : <Redirect to='/Login' />
               }} />
               <Route exact path='/settings' render={() => {
-                return true ? <Settings firebase={firebase} logOut = {this.logOut} uid = {this.state.userID}/> : <Redirect to='/Login' />
+                return this.state.user ? <Settings firebase={firebase} logOut = {this.logOut} uid = {this.state.userID}/> : <Redirect to='/Login' />
               }} />
 
               <Route exact path='*' render={() => (<LandingPage user={this.state.user} />)} />

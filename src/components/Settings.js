@@ -11,12 +11,20 @@ class Settings extends React.Component {
         selection: 'background',
         tabs : null,
         fullName: null,
+        nonProfit: null
         
     }
+    changeNonProfit=(selected)=>{
+        this.setState({nonProfit: selected})
+        this.props.firebase.firestore().collection('Users').doc(this.props.uid).update({nonProfit:selected})
+        
+    }
+
+
     componentDidMount=()=>{
         this.props.firebase.firestore().collection('Users').doc(this.props.uid).get().then((doc)=>{
             if (doc.data().tabCount){
-                this.setState({tabs:doc.data().tabCount, fullName: `${doc.data().First} ${doc.data().Last}`})
+                this.setState({tabs:doc.data().tabCount, fullName: `${doc.data().First} ${doc.data().Last}`, nonProfit: doc.data().nonProfit})
             }
         })
     }
@@ -47,7 +55,7 @@ class Settings extends React.Component {
                         </div>
 
                         <div className='col-md-9'>
-                         { this.state.selection === 'background' ? <Backgrounds/>: <Info fullName={this.state.fullName} tabs ={this.state.tabs}/>}
+                         { this.state.selection === 'background' ? <Backgrounds/>: <Info fullName={this.state.fullName} tabs ={this.state.tabs} changeNonProfit = {this.changeNonProfit} nonProfit={this.state.nonProfit}/>}
                          
                         </div>
                     </div>
