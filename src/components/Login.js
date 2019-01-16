@@ -22,19 +22,16 @@ class Login extends React.Component {
                 var firstName = displayName[0]
                 var lastName = displayName[2]
             }
-
-            if (!user.uid){
-            this.props.firestore.collection('Users').doc(user.uid).set({ First: firstName, Last: lastName, UID: user.uid }).then((result) => {
-                this.props.history.push('/newTab')
             
-
-            }).catch(function (error) {
-                console.log(error)
-            });
-        }
-        else{
-            this.props.history.push('/newTab')
-        }
+          
+       
+                this.props.firestore.collection('Users').doc(user.uid).set({ First: firstName, Last: lastName, UID: user.uid }, { merge: true }).then((result) => {
+                    this.props.history.push('/newTab')
+                }).catch(function (error) {
+                    console.log(error)
+                });
+            
+          
 
         }).catch(function (error) {
             // Handle Errors here.
@@ -61,15 +58,16 @@ class Login extends React.Component {
                 var firstName = displayName[0]
                 var lastName = displayName[2]
             }
-            if (!user.uid){
+            if (!user.uid) {
                 this.props.firestore.collection('Users').doc(user.uid).set({ First: firstName, Last: lastName, UID: user.uid }).then((result) => {
+                    this.props.history.push('/newTab')
+                }).catch(function (error) {
+                    console.log(error)
+                });
+            }
+            else {
                 this.props.history.push('/newTab')
-            }).catch(function (error) {
-                console.log(error)
-            });}
-            else{
-                this.props.history.push('/newTab')
-      
+
             }
 
         }).catch(function (error) {
@@ -127,7 +125,7 @@ class Login extends React.Component {
                                 </div>
 
                             </div>
-                           
+
                         </div>
 
 
