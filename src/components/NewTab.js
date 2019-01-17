@@ -114,8 +114,6 @@ class NewTab extends React.Component {
             </div>
      
           </div>
-    <ins data-zone="184040" className="byadthink"></ins>
-
 
         </header>
 
