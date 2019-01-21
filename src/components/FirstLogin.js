@@ -6,6 +6,7 @@ const options = [
     { value: 'OIC', label: 'Orthopeadic Institute for Children' },
     { value: 'Red Cross', label: 'Red Cross' },
     { value: 'Saint Joseph Center', label: 'Saint Joseph Center' },
+    { value: 'Sepis', label: 'Sepis' },
     { value: 'St. Jude ', label: "St. Jude Children's Research Hospital" },
     { value: `SMRC`, label: `Santa Monica Rugby Club` },
     { value: 'Teen Challenge', label: 'Teen Challenge' },
