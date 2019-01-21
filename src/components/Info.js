@@ -2,16 +2,18 @@ import React from 'react';
 import Select from 'react-select';
 
 const options = [
-    { value: 'Red Cross', label: 'Red Cross' },
-    { value: 'Wounded Warrior Project', label: 'Wounded Warrior Project' },
-    { value: 'OIC', label: 'Orthopeadic Institute for Children' },
-    { value: 'Saint Joseph Center', label: 'Saint Joseph Center' },
     { value: 'charityWater', label: 'Charity: Water' },
-    { value: `UCLA Spirit Squad`, label: `UCLA Spirit Squad` },
+    { value: `Doctors without borders`, label: `Doctors without borders` },
+    { value: 'OIC', label: 'Orthopeadic Institute for Children' },
+    { value: 'Red Cross', label: 'Red Cross' },
+    { value: 'Saint Joseph Center', label: 'Saint Joseph Center' },
     { value: 'St. Jude ', label: "St. Jude Children's Research Hospital" },
-    { value: `UCLA Men's rugby`, label: `UCLA Men's rugby` },
     { value: `SMRC`, label: `Santa Monica Rugby Club` },
-    { value: `Doctors without borders`, label: `Doctors without borders` }
+    { value: 'Teen Challenge', label: 'Teen Challenge' },
+    { value: `UCLA Men's rugby`, label: `UCLA Men's rugby` },
+    { value: `UCLA Spirit Squad`, label: `UCLA Spirit Squad` },
+    { value: 'Wounded Warrior Project', label: 'Wounded Warrior Project' }
+
     
 ];
 
