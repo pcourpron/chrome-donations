@@ -38,9 +38,7 @@ input:focus {
   outline: 0
 }
 
-#header {
-  
-}
+
 
 
 #search{
@@ -183,3 +181,24 @@ input:focus {
 .css-10nd86i{
   width: 300px !important;
 }
+
+
+@keyframes fadein{
+  0% { opacity:0; }
+  66% { opacity:0; }
+  100% { opacity:1; }
+}
+
+@-webkit-keyframes fadein{
+  0% { opacity:0; }
+  66% { opacity:0; }
+  100% { opacity:1; }
+}
+.Select-menu-outer {
+  z-index: 999 !important;
+}
+.Select.is-open {
+	z-index: 999 !important;
+}
+
+

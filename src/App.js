@@ -4,6 +4,8 @@ import AboutUs from './components/AboutUs'
 import NewTab from './components/NewTab'
 import Login from './components/Login'
 import Settings from './components/Settings'
+import FirstLogin from './components/FirstLogin'
+
 
 import firebase from 'firebase'
 import LandingPage from './components/LandingPage';
@@ -69,7 +71,7 @@ logOut=()=>{
         <Router>
           <div className="App" >
             <Switch>
-              {console.log(this.state.user)}
+
               <Route exact path='/aboutUs'   render={() => (<AboutUs user = {this.state.user} />)} />
               <Route exact path='/Login' render={() => (<Login
                 GoogleProvider={GoogleProvider}
@@ -79,6 +81,13 @@ logOut=()=>{
                 history={history}
                 changeUser={this.changeUser} />)} />
 
+              <Route exact path='/firstLogin' render = {()=>(<FirstLogin 
+              GoogleProvider={GoogleProvider}
+                facebookProvider={facebookProvider}
+                firebase={firebase}
+                firestore={firestore}
+                history={history}
+                changeUser={this.changeUser}/>)}/>
 
 
               <Route exact path='/newTab' render={() => {
