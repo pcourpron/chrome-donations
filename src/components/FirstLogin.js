@@ -10,6 +10,7 @@ const options = [
     { value: 'St. Jude ', label: "St. Jude Children's Research Hospital" },
     { value: `SMRC`, label: `Santa Monica Rugby Club` },
     { value: 'Teen Challenge', label: 'Teen Challenge' },
+    { value: 'Tonality', label: 'Tonality' },
     { value: `UCLA Men's rugby`, label: `UCLA Men's rugby` },
     { value: `UCLA Spirit Squad`, label: `UCLA Spirit Squad` },
     { value: 'Wounded Warrior Project', label: 'Wounded Warrior Project' }
