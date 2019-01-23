@@ -12,7 +12,7 @@ class NewTab extends React.Component {
     date: new Date(),
     today: moment().local().format('LL'),
     background: null,
-  
+
   }
   sendToGoogle = (event) => {
     event.preventDefault()
@@ -35,15 +35,15 @@ class NewTab extends React.Component {
   }
 
   setBackground() {
-    var lavander ='https://firebasestorage.googleapis.com/v0/b/tably-f516a.appspot.com/o/lavander.jpg?alt=media&token=fcdd570e-5c50-468b-b65c-c392d848b294'
-    var boat  = 'https://firebasestorage.googleapis.com/v0/b/tably-f516a.appspot.com/o/wooden_boat.jpg?alt=media&token=acc5b093-1dca-4a0c-9b3b-bfe3c4c8935a'
+    var lavander = 'https://firebasestorage.googleapis.com/v0/b/tably-f516a.appspot.com/o/lavander.jpg?alt=media&token=fcdd570e-5c50-468b-b65c-c392d848b294'
+    var boat = 'https://firebasestorage.googleapis.com/v0/b/tably-f516a.appspot.com/o/wooden_boat.jpg?alt=media&token=acc5b093-1dca-4a0c-9b3b-bfe3c4c8935a'
     var mountain = 'https://firebasestorage.googleapis.com/v0/b/tably-f516a.appspot.com/o/snow_mountain.jpg?alt=media&token=b6ba1621-93c9-4d76-9c95-637653f6cf1f'
-    var backgrounds = [lavander,boat,mountain];
+    var backgrounds = [lavander, boat, mountain];
     let selection = Math.floor(Math.random() * 3)
     this.setState({ background: backgrounds[selection] })
   }
 
-  
+
 
   componentDidMount() {
     this.setBackground()
@@ -51,38 +51,38 @@ class NewTab extends React.Component {
       () => this.setState({ date: new Date() }),
       1000
     );
-   
 
-    this.props.firebase.firestore().collection('Users').doc(this.props.userID).get().then((doc)=> {
+
+    this.props.firebase.firestore().collection('Users').doc(this.props.userID).get().then((doc) => {
       if (doc.exists) {
-        if (doc.data().tabCount){
-        this.props.firebase.firestore().collection('Users').doc(this.props.userID).update({tabCount:doc.data().tabCount+1})
+        if (doc.data().tabCount) {
+          this.props.firebase.firestore().collection('Users').doc(this.props.userID).update({ tabCount: doc.data().tabCount + 1 })
         }
-        else{
-        this.props.firebase.firestore().collection('Users').doc(this.props.userID).update({tabCount:1})
+        else {
+          this.props.firebase.firestore().collection('Users').doc(this.props.userID).update({ tabCount: 1 })
 
         }
       } else {
-          console.log("No such document!");
+        console.log("No such document!");
       }
-  }).catch(function(error) {
+    }).catch(function (error) {
       console.log("Error getting document:", error);
-  });
-  
+    });
 
 
-   
+
+
   }
 
   render() {
     return (
       <div id='new-tab'>
-        <Navbar background='navbar-dark'/>
+        <Navbar background='navbar-dark' />
         <div className='overlay'></div>
 
-        <header className="container-fluid" id='background' style={{ backgroundImage: `url(${this.state.background})` }}>
-          
-          <div className='row'>
+        <header className="container-fluid" id='background' style={{ backgroundImage: `url(${this.state.background})`, height: '100vh' }}>
+
+          <div className='row' >
             <div className='col'>
               <div className='row justify-content-center'>
                 <Clock className={'clock'} format={'HH:mm'} ticking={true} />
@@ -90,9 +90,7 @@ class NewTab extends React.Component {
               <div className='row justify-content-center'>
                 <h4 style={{ color: 'white' }}>{this.state.today}</h4>
               </div>
-              <div className='row justify-content-center' id='header'>
 
-              </div>
               <form onSubmit={(event) => {
                 this.sendToGoogle(event)
 
@@ -112,9 +110,16 @@ class NewTab extends React.Component {
               </form>
 
             </div>
-     
-          </div>
 
+          </div>
+          <div className=' row justify-content-between align-self-end' style={{paddingTop:'50px'}}>
+            <div className='row align-items-center justify-content-center' style={{ width:'300px', height: '250px', backgroundColor: 'white' }}> 
+            <p>upcoming ad placement</p></div>
+
+            <div className='row align-items-center justify-content-center' style={{ width: '300px', height: '250px', backgroundColor: 'white' }}>
+            <p>upcoming ad placement</p></div>
+
+          </div>
         </header>
 
 
