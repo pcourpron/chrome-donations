@@ -97,15 +97,14 @@ class FirstLogin extends React.Component {
                 var firstName = displayName[0]
                 var lastName = displayName[2]
             }
-            if (!user.uid) {
-                this.props.firestore.collection('Users').doc(user.uid).set({ First: firstName, Last: lastName, UID: user.uid,nonProfit: this.state.selectedOption.label }).then((result) => {
-                }).catch(function (error) {
-                    console.log(error)
-                });
-            }
-            else {
+            console.log(result.user)
+            this.props.firestore.collection('Users').doc(user.uid).set({ First: firstName, Last: lastName, UID: user.uid, nonProfit: this.state.selectedOption.label }, { merge: true }).then((result) => {
+            }).catch(function (error) {
+                console.log(error)
+            });
 
-            }
+
+
 
         }).catch(function (error) {
             console.log(error)
