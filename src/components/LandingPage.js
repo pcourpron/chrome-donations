@@ -16,7 +16,9 @@ class LandingPage extends React.Component {
                                     money for your non-profit or charity! Just pick your organizaiton or donate
                                     to the charity of the month, the choice is yours!
                             </p>
-                                <button className='btn btn-primary font-weight-bold' style={{ margin: '0 auto', display: 'block' }}>GET IT FOR CHROME</button>
+                                <button className='btn btn-primary font-weight-bold' style={{ margin: '0 auto', display: 'block' }} onClick={()=>{
+                                    window.location = `https://chrome.google.com/webstore/detail/tably/iilinnbehncdbpkpacbkieckmppmjemf?hl=en-US`
+                                }}>GET IT FOR CHROME</button>
                             </div>
                         </div>
                       
