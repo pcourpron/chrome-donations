@@ -3,6 +3,7 @@ import Select from 'react-select'
 const options = [
     { value: 'charityWater', label: 'Charity: Water' },
     { value: `Doctors without borders`, label: `Doctors without borders` },
+    { value: 'Gaurdian Outreach Program', label: 'Gaurdian Outreach Program' }
     { value: 'OIC', label: 'Orthopeadic Institute for Children' },
     { value: 'Red Cross', label: 'Red Cross' },
     { value: 'Saint Joseph Center', label: 'Saint Joseph Center' },
