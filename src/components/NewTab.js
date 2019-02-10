@@ -113,11 +113,16 @@ class NewTab extends React.Component {
 
           </div>
           <div className=' row justify-content-between align-self-end' style={{paddingTop:'50px'}}>
-            <div className='row align-items-center justify-content-center' style={{ width:'300px', height: '250px', backgroundColor: 'white' }}> 
-            <p>upcoming ad placement</p></div>
+            <div className='row align-items-center justify-content-center ads' style={{ width:'300px', height: '250px' }}> 
+            <img src='lungcancer.jpg' style = {{zIndex:100000}}onClick={()=>{
+              window.top.location = 'https://www.lung.org/our-initiatives/saved-by-the-scan/quiz/'
+            }} alt='smoking lung cancer awareness'/>
+            </div>
 
-            <div className='row align-items-center justify-content-center' style={{ width: '300px', height: '250px', backgroundColor: 'white' }}>
-            <p>upcoming ad placement</p></div>
+            <div className='row align-items-center justify-content-center ads' style={{ width: '300px', height: '250px'}}>
+            <img src='endhunger.jpeg' style = {{zIndex:100000}} onClick={()=>{
+              window.top.location = 'https://www.feedingamerica.org/'
+            }} alt='feeding america'/></div>
 
           </div>
         </header>

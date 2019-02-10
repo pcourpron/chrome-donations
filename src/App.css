@@ -202,3 +202,6 @@ input:focus {
 }
 
 
+.ads:hover{
+  cursor: pointer !important
+}

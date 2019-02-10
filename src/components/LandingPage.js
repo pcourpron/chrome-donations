@@ -9,7 +9,7 @@ class LandingPage extends React.Component {
                 <AboutUsNav user={this.props.user}/>
                 <div id='landing_page' className='container-fluid'>
                     <div className='row justify-content-center' id='header'>
-                        <div className='col-xl-5 d-flex align-items-center justify-content-centee' style={{ paddingRight: '0' }}>
+                        <div className='col-xl-5 d-flex align-items-center justify-content-center' style={{ paddingRight: '0' }}>
                             <div style={{ width: '100%' }}>
                                 <h1 className='text-center' style={{ padding: ' 30px' }}>Supporting great causes is just a click away!</h1>
                                 <p className='text-center' style={{ color: 'grey' }}>Every time you open a browser or tab, you raise
