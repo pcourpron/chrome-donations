@@ -140,9 +140,7 @@ class NewTab extends React.Component {
               />
             </div>
             <div id="bookmark-container" class='row' >
-                {[{url:'facebook.com'}].map((element)=>{
-                  return <Bookmark url={element.url} />
-                })}
+                
                 
               </div>
             <div
