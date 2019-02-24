@@ -121,11 +121,11 @@ class NewTab extends React.Component {
               </form>
             </div>
           </div>
-          <div
+          <div id='ads-row'
             className=" row justify-content-between align-self-end"
             style={{ paddingTop: "50px" }}
           >
-            <div
+            <div 
               className="row align-items-center justify-content-center ads"
               style={{ width: "300px", height: "250px" }}
             >

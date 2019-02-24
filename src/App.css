@@ -213,5 +213,12 @@ input:focus {
   margin:5px
 }
 #bookmark-container{
-  max-width:550px
+  max-width:728px;
+  height:96px;
+  background: white;
+}
+#ads-row{
+  position: absolute;
+  width:100%;
+  bottom: 0;
 }
