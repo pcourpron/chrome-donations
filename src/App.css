@@ -205,3 +205,13 @@ input:focus {
 .ads:hover{
   cursor: pointer !important
 }
+
+.bookmark{
+  height:125px;
+  width:125px;
+  background-color:red;
+  margin:5px
+}
+#bookmark-container{
+  max-width:550px
+}
